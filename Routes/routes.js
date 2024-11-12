@@ -7,13 +7,13 @@ const fs = require("fs");
 const mongoose = require("mongoose");
 const ObjectId = mongoose.Types.ObjectId;
 const app = express()
-const bcrypt=require ("bcrypt")
+const bcrypt=require ("bcryptjs")
 
 app.get('/sign_user',async(req,res)=>{
   try{
     const saltRounds=10;
     const password=req.body.password;
-    const salt=bcrypt.gensalt(saltRounds)
+    const salt=bcrypt.genSalt(saltRounds)
     const hashedpassword=bcrypt.hash(password,salt)
     const Users={
       name:req.body.name,
