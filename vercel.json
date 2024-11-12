@@ -11,11 +11,5 @@
       "src": "/(.*)",
       "dest": "api/index.js"
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/old-route",
-      "destination": "/new-route"
-    }
   ]
 }
