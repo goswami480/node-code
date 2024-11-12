@@ -52,4 +52,3 @@ app.use(express.static("uploads"));
 app.listen(PORT, () => {
   console.log(`App is listening on http://localhost:${PORT}`);
 });
-module.exports=app
