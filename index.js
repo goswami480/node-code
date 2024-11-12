@@ -48,8 +48,8 @@ app.use((err, req, res, next) => {
 // Serve static files
 app.use(express.static("uploads"));
 
-// Start the server
-// app.listen(PORT, () => {
-//   console.log(`App is listening on http://localhost:${PORT}`);
-// });
+//Start the server
+app.listen(PORT, () => {
+  console.log(`App is listening on http://localhost:${PORT}`);
+});
 module.exports=app
