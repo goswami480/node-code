@@ -3,10 +3,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const router=require("./Routes/routes");
-
+require("dotenv").config();
 const app = express();
-const PORT =5000 || 5500;
-
+const port =process.env.PORT || 5500;
+console.log("PORT:-",port)
+console.log("DBURI:>>>",process.env.DB_URI)
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,7 +21,7 @@ app.use(
 );
 
 // Database connection
-mongoose.connect("mongodb://127.0.0.1:27017/User", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 
@@ -49,6 +50,6 @@ app.use((err, req, res, next) => {
 app.use(express.static("uploads"));
 
 //Start the server
-app.listen(PORT, () => {
-  console.log(`App is listening on http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`App is listening on http://localhost:${port}`);
 });
